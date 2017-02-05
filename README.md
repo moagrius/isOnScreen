@@ -6,7 +6,10 @@ Current version returns false if at least 1 pixel is visible on screen, but an o
 
 E.g.
 
-    $('selector').isOnScreen();  // returns true if element is entirely within the viewport
+    $('selector').isOnScreen();  // returns true if element has at least 1 pixel within the viewport
     $('selector').isOnScreen(function(showing){
       return showing.top > 10 && showing.bottom > 0;
     }); // returns true if at least the top 10px of the element is in the viewport
+    $('selector').isOnScreen(function(showing){
+      return showing.top >= $('selector').height() && showing.bottom > 0;
+    }); // returns true if the element is entirely within the viewport
