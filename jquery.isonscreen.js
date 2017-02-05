@@ -7,8 +7,9 @@
   * 
   * By default, it tests if at least 1 pixel is showing, regardless of
   * orientation - however an optional argument is accepted, a callback
-  * that is passed the number of pixels visible on each edge - the return
-  * (true of false) of that callback is used instead.
+  * that is passed the number of pixels distant between each edge of the
+   * node and the corresponding viewport.  If the callback argument is provided
+   * the return value (true of false) of that callback is used instead.
   */
   $.fn.isOnScreen = function(test){
 
@@ -32,7 +33,7 @@
     bounds.right = bounds.left + width;
     bounds.bottom = bounds.top + height;
     
-    var showing = {
+    var deltas = {
       top : viewport.bottom - bounds.top,
       left: viewport.right - bounds.left,
       bottom: bounds.bottom - viewport.top,
@@ -40,13 +41,13 @@
     };
 
     if(typeof test == 'function') {
-      return test.call(this, showing);
+      return test.call(this, deltas);
     }
     
-    return showing.top > 0
-      && showing.left > 0
-      && showing.right > 0
-      && showing.bottom > 0;
+    return deltas.top > 0
+      && deltas.left > 0
+      && deltas.right > 0
+      && deltas.bottom > 0;
   };
 
 })(jQuery);
