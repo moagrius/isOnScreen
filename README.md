@@ -1,15 +1,12 @@
-jQuery.isOnScreen
-==========
+#jQuery.isOnScreen
 
-Simple jQuery plugin to determine if an element is within the viewport.  Optional parameters allow the user to specify a minimum percentage of the element's dimensions that must be visible to qualify.
+Simple jQuery plugin to determine if an element is positioned within the viewport.  It does not test any other type of "visibility", like css display, opacity, presence in the dom, etc - it only considers position.
 
-@param `x` - float values to test against, as a decimal value of how much of the element's width must be visible for the method to return true.  defaults to 1 (100%)
+Current version returns false if at least 1 pixel is visible on screen, but an optional callback argument is accepted, that is passed the number of pixels visible on each edge - the return of that callback is used, if provided.
 
-@param `y` - float values to test against, as a decimal value of how much of the element's height must be visible for the method to return true.  defaults to 1 (100%)
-
-For example, passing `$(element).isOnScreen(0.5, 0.5)` would return `true` if the element had at least 50% of it’s height and width within the viewport rectangle. `$(element).isOnScreen(0.1, 0.5)` would return `true` if at least 10% of the width were visible *and* 50% of the height were visible. Omitting an argument (or passing `null`) defaults to 1 (or 100%).
-
-Usage is simple
+E.g.
 
     $('selector').isOnScreen();  // returns true if element is entirely within the viewport
-    $('selector').isOnScreen(0.5, 0.5); // returns true if element is at least 50% within the viewport
+    $('selector').isOnScreen(function(showing){
+      return showing.top > 10 && showing.bottom > 0;
+    }); // returns true if at least the top 10px of the element is in the viewport
