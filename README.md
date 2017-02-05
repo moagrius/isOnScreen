@@ -2,7 +2,9 @@
 
 Simple jQuery plugin to determine if an element is positioned within the viewport.  It does not test any other type of "visibility", like css display, opacity, presence in the dom, etc - it only considers position.
 
-Current version returns false if at least 1 pixel is visible on screen, but an optional callback argument is accepted, that is passed the number of pixels visible on each edge - the return of that callback is used, if provided.  The callback is called from the scope of the current node.
+Current version returns true if at least 1 pixel is visible on screen.  
+
+An optional callback argument is accepted, that is passed the number of pixels visible on each edge - the return of that callback is used, if provided.  The callback is called from the scope of the current node.
 
 Some examples:
 
