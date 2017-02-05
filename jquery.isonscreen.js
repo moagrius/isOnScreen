@@ -40,7 +40,7 @@
     };
 
     if(typeof test == 'function') {
-      return test(showing);
+      return test.call(this, showing);
     }
     
     return showing.top > 0
