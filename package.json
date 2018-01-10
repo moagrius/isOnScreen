@@ -1,0 +1,12 @@
+{
+  "name": "jquery-on-screen",
+  "version": "1.0.0",
+  "description": "hitesh",
+  "main": "index.js",
+  "repository": "git@github.com:mike3run/isOnScreen.git",
+  "author": "Miguel Palau <mpalauzarza@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "jquery": ">= 1.6.2"
+  }
+}

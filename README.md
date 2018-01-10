@@ -1,5 +1,9 @@
 #jQuery.isOnScreen
 
+Original plugin: https://github.com/moagrius/isOnScreen
+
+I just cloned it and wrapped for UMD
+
 Simple jQuery plugin to determine if an element is positioned within the viewport.  It does not test any other type of "visibility", like css display, opacity, presence in the dom, etc - it only considers position.
 
 Current version returns true if at least 1 pixel is visible on screen.  
@@ -50,5 +54,4 @@ Returns true if the element is above the bottom of the viewport at all (at least
     $('selector').isOnScreen(function(deltas){
       return deltas.top >= 0;
     });
-    
     
